@@ -9,12 +9,16 @@ using Cursor = UnityEngine.UIElements.Cursor;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
+    //
+    private Transform player;
+
+    
     // 기본
     public Transform cameraTransform;
     public Camera myCamera;
-    public Transform player;
     public Vector3 camPosOffset = new Vector3(0.4f,0.5f,-2.0f); // 충돌 처리용으로 사용.
     public Vector3 camPivotOffset = new Vector3(0.0f,1.0f,0.0f); // 시선 이동에 사용.
+    
     
     // 에임 관련
     public float camRate = 10.0f; // 카메라 반응속도.
@@ -56,8 +60,13 @@ public class ThirdPersonCamera : MonoBehaviour
     private float defaultFOV; // 기본 시야 값
     private float targetFOV; // 타겟 시야 값
 
-    public void Initialize()
+
+    private bool initialized = false;
+    
+    public void Initialize(Transform player)
     {
+        this.player = player;
+        
         myCamera = GetComponent<Camera>();
         
         //카메라 기본 포지션 세팅
@@ -76,6 +85,9 @@ public class ThirdPersonCamera : MonoBehaviour
         ResetTargetOffsets();
         ResetFOV();
         ResetMaxVerticalAngle();
+
+
+        initialized = true;
     }
     
     public void ResetFOV()
@@ -155,6 +167,12 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Update()
     {
+        if (initialized is false)
+        {
+            return;
+        }
+        
+        
         // 마우스 이동 값
         angleH += Mathf.Clamp(Input.GetAxis("Mouse X"), -1.0f, 1.0f) * horizontalAimingSpeed;
         angleV += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1.0f, 1.0f) * verticalAimingSpeed;
