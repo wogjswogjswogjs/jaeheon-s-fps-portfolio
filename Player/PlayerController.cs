@@ -30,13 +30,7 @@ namespace _2.Scripts.Player
         public float runFOV = 80.0f; // 달리기 시야각.
         private Vector3 lastDirection; // 마지막 향했던 방향
         private bool isRun; // 현재 달리는중인가?
-
         
-       
-
-    
-   
-
         public ThirdPersonCamera GetCameraScript => playerComponents.thirdPersonCameraScript;
         
         public int GetDefaultBehaviour { get => defaultBehaviourCode; }
