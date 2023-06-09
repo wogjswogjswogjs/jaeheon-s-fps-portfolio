@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     // -- Value
     private PlayerValues playerValues;
     
-    // -- Input
+    // InputSystem
     public PlayerInput PlayerInputSystem { get; private set; }
     public float GetHorizontal => PlayerInputSystem.horizontal;
     public float GetVertical => PlayerInputSystem.vertical;

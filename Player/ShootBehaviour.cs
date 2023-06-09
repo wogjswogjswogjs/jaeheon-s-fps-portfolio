@@ -213,18 +213,23 @@ public class ShootBehaviour : BaseBehaviour
         if (PlayerController.isOverriding(aimBehaviour) && activeWeapon > 0)
         {
             Quaternion targetRot = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+            
             targetRot *= Quaternion.Euler(avatarRootRotation);
             targetRot *= Quaternion.Euler(avatarHipsRotation);
             targetRot *= Quaternion.Euler(avatarSpineRotation);
             targetRot *= Quaternion.Euler(-30.0f,0.0f,0);
+            
             PlayerController.GetAnimator.SetBoneLocalRotation(HumanBodyBones.Spine,
                 Quaternion.Inverse(hips.rotation) * targetRot);
 
             float xCamRot = Quaternion.LookRotation(PlayerController.playerComponents.thirdPersonCameraScript.transform.forward).eulerAngles.x;
             targetRot = Quaternion.AngleAxis(xCamRot + armsRotation, this.transform.right);
-            Debug.Log(targetRot);
+            
+            Debug.Log(targetRot); 
+            
             targetRot *= spine.rotation;
             targetRot *= Quaternion.Euler(avatarChestRotation);
+            
             PlayerController.GetAnimator.SetBoneLocalRotation(HumanBodyBones.Chest,
                 Quaternion.Inverse(spine.rotation) * targetRot);
         }

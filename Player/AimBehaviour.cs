@@ -52,15 +52,20 @@ public class AimBehaviour : BaseBehaviour
    public Texture2D crossHair;
    
    #endregion
-   
-   
-  
-   
+
+   private void Awake()
+   {
+      playerTransform = transform;
+   }
+
    public override void Initialize()
    {
       base.Initialize();
-      
-      playerTransform = transform;
+      AnimationIK_Initialize();
+   }
+
+   private void AnimationIK_Initialize()
+   {
       aimParamHash = Animator.StringToHash(AnimatorKey.Aim);
       speedParamHash = Animator.StringToHash(AnimatorKey.Speed);
       cornerParamHash = Animator.StringToHash(AnimatorKey.Corner);
@@ -110,8 +115,12 @@ public class AimBehaviour : BaseBehaviour
          isAim = true;
          
          PlayerController.GetAnimator.SetBool(aimParamHash, true);
+         
          yield return new WaitForSeconds(0.1f);
+         
          PlayerController.GetAnimator.SetFloat(speedParamHash, 0.0f);
+         PlayerController.GetCameraScript.SetTargetOffset(aimCamPivotOffset, aimCamPosOffset);
+         
          PlayerController.RegisterOverrideBehaviour(this); // 이 Behaviour를 OverrideBehaviour로 등록
       }
    }
@@ -150,7 +159,7 @@ public class AimBehaviour : BaseBehaviour
    {
       if (isAim)
       {
-         PlayerController.GetCameraScript.SetTargetOffset(aimCamPivotOffset, aimCamPosOffset);
+         //PlayerController.GetCameraScript.SetTargetOffset(aimCamPivotOffset, aimCamPosOffset);
       }
    }
    

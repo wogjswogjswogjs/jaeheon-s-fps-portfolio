@@ -27,12 +27,6 @@ using UnityEngine;
     
         public void OnInputUpdate()
         {
-            // 추후 게임매니저 구현 후, 게임오버 상태일때는 입력을 받지못하게 구현해야함.
-            /*if (GameManager.instance != null && GameManager.instance.isGameOver)
-        {
-            return;
-        }*/
-        
             vertical = Input.GetAxis(verticalAxisName);
             horizontal = Input.GetAxis(horizontalAxisName);
             aim = Input.GetButton(aimButtonName);
