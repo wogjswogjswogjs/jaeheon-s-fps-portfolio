@@ -82,8 +82,6 @@ public class ShootBehaviour : BaseBehaviour
         
         weaponTypeParamHash = Animator.StringToHash(AnimatorKey.Weapon);
         aimParamHash = Animator.StringToHash(AnimatorKey.Aim);
-        blockedAimParamHash = Animator.StringToHash(AnimatorKey.BlockedAim);
-        changeWeaponTrieerParamHash = Animator.StringToHash(AnimatorKey.ChangeWeapon);
         shootingTriggerParamHash = Animator.StringToHash(AnimatorKey.Shooting);
         reloadParamHash = Animator.StringToHash(AnimatorKey.Reload);
         aimBehaviour = GetComponent<AimBehaviour>();
