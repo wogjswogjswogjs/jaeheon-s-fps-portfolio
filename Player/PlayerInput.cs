@@ -1,7 +1,6 @@
 using UnityEngine;
 
-namespace _2.Scripts.Player
-{
+
     /// <summary>
     /// 플레이어 캐릭터를 조작하기 위한 사용자 입력을 감지
     /// 감지된 입력값을 PlayerController 사용.
@@ -40,4 +39,4 @@ namespace _2.Scripts.Player
             run = Input.GetButton(runButtonName);
         }
     }
-}
+

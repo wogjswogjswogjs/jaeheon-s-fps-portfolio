@@ -31,6 +31,8 @@ public class BaseStats : ScriptableObject
     public float feelRadius; // 무조건 공격
     [Range(0, 100)] [Tooltip("근처 들을 수 있는 거리")]
     public float hearRadius;
+    [Range(0, 50)] [Tooltip("경고를 들을 수 있는 거리")]
+    public float alertRadius;
     
     [Header("Cover")]
     [Tooltip("장애물레이어 마스크")]

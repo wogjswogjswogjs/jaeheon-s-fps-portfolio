@@ -82,11 +82,6 @@ public class StateController : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            enemyNav.destination = patrolWaypoints[0].position;
-        }
-
         if (isAiActive == false) return;
         
         currentState.UpdateState(this);
@@ -126,6 +121,15 @@ public class StateController : MonoBehaviour
             baseStats.coverMask);
 
         return blockedSight;
+    }
+
+    public void SearchPatrolPoint(int index)
+    {
+        Transform enemyPatrhoPoints = GameObject.Find("EnemyPatrolPoints").transform.GetChild(index);
+        for (int i = 0; i < 3; i++)
+        {
+            patrolWaypoints[i] = (enemyPatrhoPoints.GetChild(i).transform);   
+        }
     }
 
     private void OnDrawGizmos()

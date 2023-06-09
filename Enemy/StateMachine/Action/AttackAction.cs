@@ -54,9 +54,13 @@ public class AttackAction : Action
         Vector3 shotDirection = controller.aimTarget.transform.position - controller.gunMuzzle.position;
         shotDirection = shotDirection.normalized + shotErrorRate;
 
-        Ray ray = new Ray(controller.transform.position + Vector3.up * 1.8f, controller.aimTarget.transform.position - controller.transform.position);
+        Ray ray = new Ray(controller.transform.position + Vector3.up * 1.5f, controller.aimTarget.transform.position - controller.transform.position);
         if (Physics.Raycast(ray, out RaycastHit hit, controller.baseStats.lookRadius, controller.baseStats.targetMask))
         {
+            hit.collider.SendMessageUpwards("HitCallBack",
+                new HealthBase.DamageInfo(hit.point, ray.direction, controller.gunData.damage),
+                SendMessageOptions.DontRequireReceiver);
+            EffectManager.Instance.EffectOneShot(0, hit.point);
             ShotEffect(controller);
         }
     }

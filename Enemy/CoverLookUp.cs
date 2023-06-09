@@ -30,7 +30,6 @@ public class CoverLookUp : MonoBehaviour
         Collider[] go = GetBoundObject(11,10.0f);
         foreach (var VARIABLE in go)
         {
-            Debug.Log(VARIABLE.gameObject.name);
         }
     }
 

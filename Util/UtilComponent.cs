@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _2.Scripts.Util
-{
+
     public static class UtilComponent<T> where T : Behaviour
     {
         /// <summary>
@@ -16,4 +15,3 @@ namespace _2.Scripts.Util
             return owner.GetComponent<T>() ? owner.GetComponent<T>() : owner.gameObject.AddComponent<T>();
         }
     }
-}

@@ -17,7 +17,6 @@ public class FindCoverAction : Action
         controller.needToMovePosition = GetBestCover(controller, 5.0f);
         controller.enemyNav.destination = controller.needToMovePosition;
         controller.enemyNav.stoppingDistance = 1.0f;
-        
     }
 
     public override void UpdateAction(StateController controller)

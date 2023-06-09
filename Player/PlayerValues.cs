@@ -1,7 +1,6 @@
 using UnityEngine;
 
-namespace _2.Scripts.Player
-{
+
     public class PlayerValues : MonoBehaviour
     {
         // -- Animator
@@ -31,4 +30,4 @@ namespace _2.Scripts.Player
         }
 
     }
-}
+

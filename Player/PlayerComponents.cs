@@ -1,10 +1,7 @@
 using System.Collections.Generic;
-using _2.Scripts.Stage;
-using _2.Scripts.Util;
 using UnityEngine;
 
-namespace _2.Scripts.Player
-{
+
     public class PlayerComponents : MonoBehaviour
     {
         // -- 스테이지 매니저
@@ -21,6 +18,8 @@ namespace _2.Scripts.Player
         // -- Behaviour
         internal List<BaseBehaviour> behaviours = new List<BaseBehaviour>();
 
+        // -- Health
+        internal PlayerHealth playerHealth;
         public void Initialize(StageManager sm)
         {
             SetStageManager(sm);
@@ -50,6 +49,8 @@ namespace _2.Scripts.Player
             playerTransform = GetComponent<Transform>();
             playerAnimator = GetComponent<Animator>();
             playerRigidbody = GetComponent<Rigidbody>();
+            playerHealth = GetComponent<PlayerHealth>();
+            playerHealth.enabled = true;
         }
 
         private void GetBehaviour()
@@ -68,4 +69,4 @@ namespace _2.Scripts.Player
             }
         }
     }
-}
+
