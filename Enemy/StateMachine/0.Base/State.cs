@@ -13,18 +13,18 @@ public class State : ScriptableObject
     /// <summary>
     /// 현재 State의 행동들을 Update
     /// </summary>
-    public void UpdateState(StateController controller)
+    public void ExecuteState(EnemyController controller)
     {
         foreach (var action in actions)
         {
-            action.UpdateAction(controller);
+            action.ExecuteAction(controller);
         }
     }
 
     /// <summary>
     /// State가 변경되었을 때, 처음 실행될 함수
     /// </summary>
-    public void OnEnbledState(StateController controller)
+    public void OnEnabledState(EnemyController controller)
     {
         foreach (var action in actions)
         {
@@ -40,7 +40,7 @@ public class State : ScriptableObject
     /// <summary>
     /// State가 변경 될 때, 실행될 함수
     /// </summary>
-    public void ExitState(StateController controller)
+    public void ExitState(EnemyController controller)
     {
         foreach (var action in actions)
         {
@@ -52,7 +52,7 @@ public class State : ScriptableObject
     /// <summary>
     /// State 전이 함수
     /// </summary>
-    public void CheckTransitions(StateController controller)
+    public void CheckTransitions(EnemyController controller)
     {
         foreach (var transition in transitions)
         {
@@ -76,7 +76,7 @@ public class State : ScriptableObject
 
             if (controller.currentState != this)
             {
-                controller.currentState.OnEnbledState(controller);
+                controller.currentState.OnEnabledState(controller);
                 break;
             }
         }

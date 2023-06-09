@@ -7,7 +7,7 @@ using UnityEngine;
 public class AttackAction : Action
 {
     private float startShootTimer = 1.0f;
-    public override void UpdateAction(StateController controller)
+    public override void ExecuteAction(EnemyController controller)
     {
         startShootTimer += Time.deltaTime;
         if (startShootTimer >= controller.baseStats.shotDelay)
@@ -19,7 +19,7 @@ public class AttackAction : Action
     }
 
    
-    public override void OnEnabledAction(StateController controller)
+    public override void OnEnabledAction(EnemyController controller)
     {
         startShootTimer = 0f;
         controller.focusSight = true;
@@ -28,12 +28,12 @@ public class AttackAction : Action
         controller.enemyAnimation.enemyAnimator.SetBool(AnimatorKey.Crouch, false);
         controller.needToMovePosition = controller.aimTarget.transform.position;
     }
-    public override void ExitAction(StateController controller)
+    public override void ExitAction(EnemyController controller)
     {
         controller.isAiming = false;
     }
 
-    private void ShotEffect(StateController controller)
+    private void ShotEffect(EnemyController controller)
     {
         GameObject muzzleFlash = EffectManager.Instance.EffectOneShot(1, Vector3.zero);
         muzzleFlash.transform.SetParent(controller.gunMuzzle);
@@ -43,7 +43,7 @@ public class AttackAction : Action
         SoundManager.Instance.PlayAudioSourceAtPoint(10, controller.gunMuzzle.position,0.5f);
     }
 
-    private void ShotCast(StateController controller)
+    private void ShotCast(EnemyController controller)
     {
         Vector3 shotErrorRate = Vector3.zero;
         shotErrorRate +=  Random.Range(-controller.baseStats.shotErrorRate, controller.baseStats.shotErrorRate)

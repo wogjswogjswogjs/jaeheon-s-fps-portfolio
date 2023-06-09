@@ -6,7 +6,7 @@ using UnityEngine;
 public class PatrolAction : Action
 {
     private Vector3 lastDirection;
-    public override void UpdateAction(StateController controller)
+    public override void ExecuteAction(EnemyController controller)
     {
         Patrol(controller);
     }
@@ -14,7 +14,7 @@ public class PatrolAction : Action
     /// <summary>
     /// Start가 필요하면 override받아서 사용하면된다
     /// </summary>
-    public override void OnEnabledAction(StateController controller)
+    public override void OnEnabledAction(EnemyController controller)
     {
         controller.focusSight = false;
         controller.enemyNav.speed = controller.baseStats.patrolSpeed;
@@ -22,7 +22,7 @@ public class PatrolAction : Action
         controller.enemyNav.stoppingDistance = 0.5f;
     }
 
-    private void Patrol(StateController controller)
+    private void Patrol(EnemyController controller)
     {
         if (controller.patrolWaypoints.Count == 0)
         {

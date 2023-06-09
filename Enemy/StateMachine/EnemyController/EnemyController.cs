@@ -12,7 +12,7 @@ using UnityEngine.UIElements;
 /// state에 필요한 기능들, 애니메이션 콜백들
 /// 시야 체크, 찾아놓은 엄폐물 장소중 가장 가까운 위치를 찾는 기능.
 /// </summary>
-public class StateController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public BaseStats baseStats;
     public GunData gunData;
@@ -72,19 +72,18 @@ public class StateController : MonoBehaviour
         
         focusSight = false;
         isAiActive = true;
-        Debug.Log("엥");
     }
 
     public void Start()
     {
-        currentState.OnEnbledState(this);
+        currentState.OnEnabledState(this);
     }
 
     public void Update()
     {
         if (isAiActive == false) return;
         
-        currentState.UpdateState(this);
+        currentState.ExecuteState(this);
         currentState.CheckTransitions(this);
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/Transitions/UnLook")]
 public class UnLookTransition : Transition
 {
-    public override bool CheckTransition(StateController controller)
+    public override bool CheckTransition(EnemyController controller)
     {
         if (CheckTargetInRadius(controller, controller.baseStats.lookRadius))
         {
@@ -22,7 +22,7 @@ public class UnLookTransition : Transition
         return true;
     }
 
-    public override void OnEnabledTransition(StateController controller)
+    public override void OnEnabledTransition(EnemyController controller)
     {
         
     }

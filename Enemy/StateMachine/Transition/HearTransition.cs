@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/Transitions/Hear")]
 public class HearTransition : Transition
 {
-    public override bool CheckTransition(StateController controller)
+    public override bool CheckTransition(EnemyController controller)
     {
         if (CheckTargetInRadius(controller, controller.baseStats.hearRadius))
         {
@@ -14,7 +14,7 @@ public class HearTransition : Transition
         return false;
     }
 
-    public override void OnEnabledTransition(StateController controller)
+    public override void OnEnabledTransition(EnemyController controller)
     {
         
     }

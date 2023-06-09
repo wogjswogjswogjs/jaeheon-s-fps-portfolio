@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class EnemyAnimation : MonoBehaviour
 {
     [HideInInspector] public Animator enemyAnimator;
-    private StateController controller;
+    private EnemyController controller;
     private NavMeshAgent enemyNav;
     
     private Transform hips, spine, rightHand;// born transform
@@ -29,7 +29,7 @@ public class EnemyAnimation : MonoBehaviour
 
     private void Awake()
     {
-        controller = GetComponent<StateController>();
+        controller = GetComponent<EnemyController>();
         enemyNav = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
         enemyNav.updateRotation = false; // 회전은 직접 할것이므로 Nav의 회전은 막는다.

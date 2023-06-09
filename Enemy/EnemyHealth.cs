@@ -24,7 +24,7 @@ public class EnemyHealth : HealthBase
     private bool isCritical;
 
     private Animator anim;
-    private StateController controller;
+    private EnemyController controller;
     private GameObject gameController;
     private void Awake()
     {
@@ -41,7 +41,7 @@ public class EnemyHealth : HealthBase
         originalBarScale = healthBar.sizeDelta.x;
         
         anim = GetComponent<Animator>();
-        controller = GetComponent<StateController>();
+        controller = GetComponent<EnemyController>();
         gameController = GameObject.FindGameObjectWithTag("GameController");
     }
 

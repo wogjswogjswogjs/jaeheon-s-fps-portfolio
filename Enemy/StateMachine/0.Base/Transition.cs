@@ -14,14 +14,14 @@ public abstract class Transition : ScriptableObject
     /// <summary>
     /// 전이를 위한 조건을 판단하는 함수
     /// </summary>
-    public abstract bool CheckTransition(StateController controller);
+    public abstract bool CheckTransition(EnemyController controller);
 
-    public virtual void OnEnabledTransition(StateController controller)
+    public virtual void OnEnabledTransition(EnemyController controller)
     {
         
     }
     
-    public static bool CheckTargetInRadius(StateController controller, float radius)
+    public static bool CheckTargetInRadius(EnemyController controller, float radius)
     {
         if (controller.aimTarget.GetComponent<HealthBase>().IsDead)
         {

@@ -39,7 +39,7 @@ using UnityEngine.Video;
         #region Eenmy
 
         [SerializeField] private List<Transform> enemySpawnLocations = new List<Transform>();
-        private List<StateController> enemies = new List<StateController>();
+        private List<EnemyController> enemies = new List<EnemyController>();
         public GameObject enemyPrefab;
         
         #endregion
@@ -179,7 +179,7 @@ using UnityEngine.Video;
             for (int i = 0; i < enemySpawnLocations.Count; i++)
             {
                 GameObject obj = Instantiate(enemyPrefab, enemySpawnLocations[i]);
-                obj.GetComponent<StateController>().SearchPatrolPoint(i);
+                obj.GetComponent<EnemyController>().SearchPatrolPoint(i);
             }
         }
 

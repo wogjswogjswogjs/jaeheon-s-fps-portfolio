@@ -6,7 +6,7 @@ using UnityEngine;
 public class LookTransition : Transition
 {
 
-    public override bool CheckTransition(StateController controller)
+    public override bool CheckTransition(EnemyController controller)
     {
         if (CheckTargetInRadius(controller, controller.baseStats.lookRadius))
         {
@@ -23,7 +23,7 @@ public class LookTransition : Transition
         return false;
     }
 
-    public override void OnEnabledTransition(StateController controller)
+    public override void OnEnabledTransition(EnemyController controller)
     {
         
     }

@@ -9,7 +9,7 @@ using UnityEngine.AI;
 public class FindCoverAction : Action
 {
     private List<GameObject> list;
-    public override void OnEnabledAction(StateController controller)
+    public override void OnEnabledAction(EnemyController controller)
     {
         controller.focusSight = true;
         controller.enemyAnimation.enemyAnimator.SetBool(AnimatorKey.Crouch, false);
@@ -19,7 +19,7 @@ public class FindCoverAction : Action
         controller.enemyNav.stoppingDistance = 1.0f;
     }
 
-    public override void UpdateAction(StateController controller)
+    public override void ExecuteAction(EnemyController controller)
     {
         if (controller.enemyNav.remainingDistance <= 1.0f)
         {
@@ -33,7 +33,7 @@ public class FindCoverAction : Action
     /// <summary>
     /// 근처의 Bound를 긁어오기
     /// </summary>
-    private Vector3 GetBestCover(StateController controller, float radius)
+    private Vector3 GetBestCover(EnemyController controller, float radius)
     {
         Vector3 retVec;
         Vector3 minDistanceTransform = Vector3.zero;
