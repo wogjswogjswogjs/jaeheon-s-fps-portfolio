@@ -76,3 +76,10 @@ crashlytics-build.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
 
+# Temp
+/1.Scenes/*
+/9.Resources/*
+/PolygonHeist/*
+/Prefabs/*
+/Resources/*
+*.meta
