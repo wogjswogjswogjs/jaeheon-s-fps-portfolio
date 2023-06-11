@@ -14,6 +14,11 @@ public class FindMoneyQuest : QuestData
         QUESTSTATUS = QUESTSTATUS.ACTIVE;
     }
 
+    /// <summary>
+    /// QuestUIManager에서 QuestManager의 uiUpdateEvent를 구독한다
+    /// QuestUIManager의 UpdateQuestUI함수를 통해서 이 함수가 호출된다.
+    /// </summary>
+    /// <returns></returns>
     public override string ChangeUIText()
     {
         return StageManager.Instance.playerMoney + "/" + moneyTotal;

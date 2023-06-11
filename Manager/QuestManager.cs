@@ -6,7 +6,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-
+/// <summary>
+/// 현재 씬의 QuestDataBase를 링크 걸어놓아야함.
+/// 퀘스트로인해 변경되어야할 ui들은 uiUpdateEvent delegate에 구독해놓아야함.
+/// Update에서 지속적으로 퀘스트의 진행도를 체크
+/// </summary>
 public class QuestManager : MonoBehaviour
 {
     public delegate void UIUpdateHandle(QuestData questData);
